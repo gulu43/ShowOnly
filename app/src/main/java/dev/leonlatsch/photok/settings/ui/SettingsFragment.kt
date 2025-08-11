@@ -72,12 +72,75 @@ class SettingsFragment : PreferenceFragmentCompat() {
     @Inject
     lateinit var config: Config
 
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        view.statusBarPadding()
+//
+//        toolbar = view.findViewById(R.id.settingsToolbar)
+//    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.statusBarPadding()
 
         toolbar = view.findViewById(R.id.settingsToolbar)
+
+        val correctPassword = "1234" // Change as needed
+
+        val input = android.widget.EditText(requireContext()).apply {
+            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        }
+
+        androidx.appcompat.app.AlertDialog.Builder(requireContext())
+            .setTitle("Enter Password")
+            .setView(input)
+            .setCancelable(false)
+            .setPositiveButton("OK") { dialog, _ ->
+                val entered = input.text.toString()
+                if (entered != correctPassword) {
+                    //  Navigate to "All Files"
+                    findNavController().navigate(R.id.galleryFragment)
+                }
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel") { _, _ ->
+                // If they press cancel, also go to "All Files"
+                findNavController().navigate(R.id.galleryFragment)
+            }
+            .show()
     }
+
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        view.statusBarPadding()
+//
+//        toolbar = view.findViewById(R.id.settingsToolbar)
+//
+//        //  Hardcoded password prompt here
+//        val correctPassword = "1234" // Change this to your desired password
+//
+//        val input = android.widget.EditText(requireContext()).apply {
+//            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+//        }
+//
+//        androidx.appcompat.app.AlertDialog.Builder(requireContext())
+//            .setTitle("Enter Password")
+//            .setView(input)
+//            .setCancelable(false)
+//            .setPositiveButton("OK") { dialog, _ ->
+//                val entered = input.text.toString()
+//                if (entered != correctPassword) {
+//                    requireActivity().finish() // Close the activity if wrong
+//                }
+//                dialog.dismiss()
+//            }
+//            .setNegativeButton("Cancel") { _, _ ->
+//                requireActivity().finish()
+//            }
+//            .show()
+//    }
+
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.settings, rootKey)
