@@ -37,7 +37,7 @@ fun AppName(
         text = stringResource(R.string.app_name),
         color = color,
         fontFamily = FontFamily(Font(R.font.lobster_regular)),
-        fontSize = 38.sp,
+        fontSize = 24.sp,
         modifier = modifier
     )
 }

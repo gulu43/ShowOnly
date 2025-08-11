@@ -71,6 +71,11 @@ import dev.leonlatsch.photok.settings.ui.compose.LocalConfig
 import dev.leonlatsch.photok.ui.components.ConfirmationDialog
 import dev.leonlatsch.photok.ui.components.MagicFab
 import dev.leonlatsch.photok.ui.components.MultiSelectionMenu
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+
 
 private const val PORTRAIT_COLUMN_COUNT = 3
 private const val LANDSCAPE_COLUMN_COUNT = 6
@@ -113,12 +118,65 @@ fun PhotoGallery(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
         ) {
+
+//            MagicFab(
+//                label = stringResource(R.string.import_menu_fab_label),
+//                onClick = {
+//                    importMenuBottomSheetVisible.value = true
+//                }
+//            )
+            // Your MagicFab
+            var showPasswordDialog by remember { mutableStateOf(false) }
+
             MagicFab(
                 label = stringResource(R.string.import_menu_fab_label),
                 onClick = {
-                    importMenuBottomSheetVisible.value = true
+                    showPasswordDialog = true // Show password dialog first
                 }
             )
+
+            if (showPasswordDialog) {
+                var password by remember { mutableStateOf("") }
+                var passwordError by remember { mutableStateOf(false) }
+
+                AlertDialog(
+                    onDismissRequest = { showPasswordDialog = false },
+                    title = { Text("Enter Password") },
+                    text = {
+                        OutlinedTextField(
+                            value = password,
+                            onValueChange = {
+                                password = it
+                                passwordError = false
+                            },
+                            label = { Text("Password") },
+                            visualTransformation = PasswordVisualTransformation()
+                        )
+                    },
+                    confirmButton = {
+                        TextButton(onClick = {
+                            if (password == "import") { // your chosen password
+                                importMenuBottomSheetVisible.value = true // open the menu
+                                showPasswordDialog = false
+                                password = ""
+                            } else {
+                                passwordError = true
+                            }
+                        }) {
+                            Text("OK")
+                        }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = {
+                            showPasswordDialog = false
+                            password = ""
+                        }) {
+                            Text("Cancel")
+                        }
+                    }
+                )
+            }
+
         }
 
         ImportMenuBottomSheet(
