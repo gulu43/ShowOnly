@@ -110,7 +110,9 @@
                 android:gravity="center"
                 android:onClick="@{() -> context.onExportClicked()}"
                 android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
+                android:visibility="gone"
+                tools:ignore="UseCompoundDrawables"
+                >
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -125,7 +127,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/common_export"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    />
 
             </LinearLayout>
 

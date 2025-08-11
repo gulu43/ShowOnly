@@ -85,7 +85,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         toolbar = view.findViewById(R.id.settingsToolbar)
 
-        val correctPassword = "1234" // Change as needed
+        val correctPassword = "Settings" // Change as needed
 
         val input = android.widget.EditText(requireContext()).apply {
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD

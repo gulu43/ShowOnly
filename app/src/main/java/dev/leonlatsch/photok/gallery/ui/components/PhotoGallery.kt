@@ -155,7 +155,7 @@ fun PhotoGallery(
                     },
                     confirmButton = {
                         TextButton(onClick = {
-                            if (password == "import") { // your chosen password
+                            if (password == "Import") { // your chosen password
                                 importMenuBottomSheetVisible.value = true // open the menu
                                 showPasswordDialog = false
                                 password = ""
