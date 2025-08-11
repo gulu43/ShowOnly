@@ -14,12 +14,10 @@ Modifications have been made to adapt it for this specific purpose.
 
 # Password
 
-For import Button
-Import
-import
+Import or import is password for Importing the media<br/>
+Settings is password for Settings in navigation bar
 
-For settings Button
-Settings
+
 ---
 
 ## Features
