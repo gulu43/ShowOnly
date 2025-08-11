@@ -1,5 +1,4 @@
 ![Photok](fastlane/metadata/android/en-US/images/featureGraphic.jpg)
-
 [![GitHub release](https://img.shields.io/github/v/release/leonlatsch/Photok.svg?logo=github&label=GitHub)](https://github.com/leonlatsch/Photok/releases/latest)
 [![Google Play](https://img.shields.io/endpoint?color=green&logo=google-play&logoColor=white&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Ddev.leonlatsch.photok%26l%3DGPlay%26m%3D%24version)](https://play.google.com/store/apps/details?id=dev.leonlatsch.photok)
 [![F-Droid](https://img.shields.io/f-droid/v/dev.leonlatsch.photok.svg?logo=f-droid&label=F-Droid)](https://f-droid.org/packages/dev.leonlatsch.photok/)
@@ -10,6 +9,7 @@
 Encrypt images and videos on your device and keep them safe from others.
 
 ## About
+"its 99% Photok only i just changed little things that i wanted"
 Photok is a free and open-source gallery app for Android.
 Imported media files are encrypted on the device using AES-256 and only decrypted in memory when using the app.
 This makes Photok different from other encrypted gallery apps.
@@ -19,6 +19,11 @@ Photok is completely free, open source, and ad-free. It is developed as a hobby 
 <a href="https://www.producthunt.com/posts/photok?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-photok" target="_blank">
     <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=275764&theme=light" alt="Photok - Free and open source photo safe. | Product Hunt" width="250" height="54" />
 </a>
+
+#Password
+Import
+import
+Settings
 
 ## Download
 Photok is available at Google Play and F-Droid. Aswell as some alternatives.
